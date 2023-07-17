@@ -7,8 +7,5 @@ Rails.application.routes.draw do
 
   resources :users do 
      resources :posts, only: [:index, :show]
-      post '/posts', to: 'posts#index'
-    # get '/posts/:id', to: 'posts#show'
   end
-  resources :posts, only: [:show]
 end
