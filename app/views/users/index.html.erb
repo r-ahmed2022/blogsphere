@@ -1,0 +1,22 @@
+
+ <div class="container my-4">
+
+     <table align="center" border="1px" cellspacing="4px">
+        <thead>
+        <tr>
+            <th align="center">Photo</th>
+            <th align="center">User Name</th>
+            <th align="center">Details</th>
+        </tr>
+        </thead> 
+        <tbody>
+                <% @users.each do |user| %>
+                    <tr>
+                        <td><%= user.photo %></td>
+                        <td><%= user.name %></td>
+                        <td><%= link_to 'User Details', user_path(user) %></td>
+                    </tr>
+                <% end %>
+                </tbody>
+      </table>
+</div>
