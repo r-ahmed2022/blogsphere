@@ -1,0 +1,17 @@
+<div class="container d-flex flex-column">
+
+
+<h1>Posts by User 1</h1>
+<% @posts.each do |post| %>
+    
+    <div class="cards">
+        <b>Title:&nbsp;&nbsp;</b> <%= post.title %>&nbsp; 
+        <%= link_to 'Show', post_path(post) %>
+
+    </div>
+<% end %>
+      
+
+</div>
+
+
