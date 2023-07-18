@@ -12,8 +12,10 @@
 
   <body>
   <div class="container d-flex align-items-center flex-column">
+  <div class="d-flex align-items-center">
         <h1>Blogsphere</h1>
-
+  <span><%= link_to 'Home', root_path, class: 'justify-self-end' %></span>
+  </div>
       <%= yield %>
     </div>
   </body>
