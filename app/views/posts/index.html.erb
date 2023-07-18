@@ -1,17 +1,61 @@
-<div class="container d-flex flex-column">
 
-<h1>Posts by <%= @user.name %></h1>
-<% @posts.each do |post| %>
-    
-    <div class="cards">
-        <b>Title:&nbsp;&nbsp;</b> <%= post.title %>&nbsp;
- 
-        <%= link_to 'Show', @post %>
 
-    </div>
+
+
+<div class="container mt-3">
+<div class="card text-center my-3">
+  <div class="card-header">
+  </div>
+  <div class="card-body d-flex justify-content-start align-items-start">
+            <div class="user-photo">
+              <!--  <%= @user.photo %> --> 
+            <%= image_tag("user-photo.jpg", class: "user-pic")%> 
+
+            </div>
+            <div class="ms-4 ps-4">
+                <h1> <%= @user.name %></h1>
+           </div>
+  </div>
+  <div class="card-footer text-muted d-flex justify-content-end">
+    <b>Number of posts:- </b> &nbsp; <%= @user.postscounter %>
+  </div>
+
+
+  <!--  start of posts -->
+ <% @posts.each do |post| %>
+
+  <div class="card text-center my-3 ">
+  <div class="card-header d-flex justify-content-between">
+     <div><b>Title:&nbsp;&nbsp;</b> <%= post.title %>&nbsp;</div> 
+     <%= link_to 'See more..', post_path(post) , class: 'link_to_post' %>
+
+  </div>
+  <div class="card-body d-flex flex-column justify-content-around align-items-center">
+           
+            <div class="user_name-div">
+              
+             <%= post.text %>
+
+           </div>
+           <div class="username-comments-section d-flex align-items-start flex-column align-self-start ps-4 ">
+             <% post.recent_comments.each do |comment| %>
+               <small><%= comment.author.name %>: <%= comment.text %></small><br>
+             <% end %>
+           
+           </div>
+  </div>
+  <div class="card-footer text-muted d-flex justify-content-end">
+
+    <b>Comments:- </b><span class="text-success"> &nbsp; <u>  <%= post.commentscounter %></u></span>&nbsp;&nbsp;
+    <b>Likes:- </b> &nbsp;<span class=" no-likes text-danger"><u> <%= post.likescounter %></u></span>
+  </div>
+</div>
 <% end %>
-      <%= link_to "Home", root_path%>
+
+ <!--  end of posts -->
 
 </div>
 
 
+
+</div>
