@@ -16,8 +16,8 @@ RSpec.describe UsersController, type: :request do
 
   describe 'GET #show' do
     it 'returns the user details' do
-      expect(@user).to be_valid 
-      expect(@user.id).not_to be_nil 
+      expect(@user).to be_valid
+      expect(@user.id).not_to be_nil
       get user_path(@user.id)
       expect(response).to have_http_status(200)
       expect(response).to render_template(:show)
