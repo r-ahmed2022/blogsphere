@@ -1,0 +1,26 @@
+
+<%= form_with(model: @post, url: action == 'new' ? new_user_post_path(@user) : edit_user_post_path(@post), local: true) do |form| %>
+   
+      <% if form.object.errors.any? %>
+       <div>
+          <% form.object.errors.full_messages.each do |error|%>
+          <p><%= error %></p>
+          <% end %>
+      </div>
+
+      <% end %>
+   <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :text, style: "display: block" %>
+    <%= form.text_area :text, style: "my-4" %>
+  </div>
+
+   
+  <div>
+    <%= form.submit class: 'btn btn-success my-4' %>
+  </div>
+<% end %>

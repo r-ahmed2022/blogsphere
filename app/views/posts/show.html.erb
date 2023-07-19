@@ -4,7 +4,8 @@
     <div class="d-flex mx-3 align-items-center ">
                 <%= link_to 'Comment', new_user_post_comment_path(@post.author, @post), class: ' comment-like btn btn-success' %>
                 <%= render 'likes/like' %>
-                
+                <%= link_to 'Edit Post', edit_user_post_path(@user, @post.id), class: 'btn btn-success' %>
+
     </div>
     <%= link_to 'Home Page', '/' %>
     <%= link_to 'Back to posts', user_posts_path(@user) %>

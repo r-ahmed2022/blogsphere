@@ -28,6 +28,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    set_post
+  end
+
+  def update
+     set_post
+     if @post.update(params.require(:post).permit(:title, :text))
+      flash[:notice] = 'Post was successfully updated.'
+      redirect_to user_posts_path(current_user, @post)
+    else
+      render :edit, status: unprocessable_entity
+    end
+  end
+
   private
 
   def set_post
