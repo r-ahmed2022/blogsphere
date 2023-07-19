@@ -1,0 +1,12 @@
+<section class="indent">
+    <%= form_with model: Comment, url: user_post_comments_path(@post.author, @post) do |form| %>
+        <div class="my-4">
+            <%= form.label :Comment %><br>
+            <%= form.text_area :text %>
+        </div>
+        <div>
+            <%= form.submit "Save", class: 'btn btn-success'%>
+            <%= link_to 'Cancel', user_post_path(@post.author, @post), class: 'btn btn-secondary' %>
+        </div>
+    <% end %>
+</section>

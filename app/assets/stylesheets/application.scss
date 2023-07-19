@@ -14,3 +14,93 @@
  *= require_self
  */
 @import 'bootstrap';
+
+.navbar-custom {
+  border-radius: 10px;
+}
+
+.navbar-logo {
+  color: white;
+  text-decoration: none;
+  font-size: 2.5rem;
+}
+
+table,
+th,
+td {
+  width: 50%;
+  border: 1px solid green;
+  padding: 1rem 2rem;
+}
+
+.user-pic {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  z-index: -1;
+}
+
+.posts_title {
+  display: inline;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-body > div:last-child {
+  margin-bottom: 2rem;
+}
+
+.user_name-div {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  box-shadow: 0 2px 4px #eee;
+  padding: 1rem;
+  margin: 2rem;
+}
+
+.user_name {
+  float: left;
+}
+
+.bio {
+  border: 0;
+  border: none;
+}
+
+.user-photo {
+  width: 20%;
+  height: auto;
+  align-self: stretch;
+  border: 2px solid black;
+  background-color: #eee;
+}
+
+.btn-div {
+  width: 100%;
+  text-align: center;
+}
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.comment-like {
+  width: 7rem;
+  height: 100%;
+  margin: 1rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .user-photo {
+    width: 50%;
+  }
+}
