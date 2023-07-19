@@ -7,14 +7,12 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-user = User.new(
+user = User.create(
     name: 'Riyaz',
     photo: 'riyaz.jpg',
     bio: 'Teacher from India'
   )
-  user.skip_confirmation! # If you have email confirmation enabled in Devise
-  user.save!
- post = Post.create(
+  post = Post.create(
     title: 'Demo Post',
     text: 'This is demo for render site',
     author: user
