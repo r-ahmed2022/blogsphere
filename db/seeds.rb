@@ -9,10 +9,8 @@
 
 user = User.new(
     name: 'Riyaz',
-    email: 'riysaim@outlook.com',
-    password: 'microverse23',
-    password_confirmation: 'microverse23',
-    role: 'admin'
+    photo: 'riyaz.jpg',
+    bio: 'Teacher from India'
   )
   user.skip_confirmation! # If you have email confirmation enabled in Devise
   user.save!
