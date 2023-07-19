@@ -7,4 +7,3 @@ class Comment < ApplicationRecord
     post.increment!(:commentscounter)
   end
 end
-

@@ -7,8 +7,8 @@ class PostsController < ApplicationController
   end
 
   def show
-  @post = Post.find(params[:id])
-  @user = @post.author_id
+    @post = Post.find(params[:id])
+    @user = @post.author_id
   rescue ActiveRecord::RecordNotFoundError
     redirect_to root_path
   end
@@ -38,4 +38,3 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :text, commentscounter: 0, likescounter: 0)
   end
 end
-
