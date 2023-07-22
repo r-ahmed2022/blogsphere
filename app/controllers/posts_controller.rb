@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   def new
     @user = User.find(params[:user_id])
-    @post = Post.new
+    @post = @user.posts.build
   end
 
   def create
@@ -30,11 +30,13 @@ class PostsController < ApplicationController
 
   def edit
     set_post
+    @form_url = user_post_path(@user, @post)
+
   end
 
   def update
-     set_post
-     if @post.update(params.require(:post).permit(:title, :text))
+    set_post
+     if @post.update(post_params)
       flash[:notice] = 'Post was successfully updated.'
       redirect_to user_posts_path(current_user, @post)
     else
@@ -45,10 +47,11 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:title, :text, commentscounter: 0, likescounter: 0)
+    params.require(:post).permit(:title, :text)
   end
 end
