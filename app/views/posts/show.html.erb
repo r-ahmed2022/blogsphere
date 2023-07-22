@@ -1,10 +1,11 @@
 <div class="container d-flex flex-column align-items-center">
    <p> Title: <%= @post.title %></p>
    <p>Text, <%= @post.text %></p>
-    <div class="d-flex mx-3 align-items-center ">
-                <%= link_to 'Comment', new_user_post_comment_path(@post.author, @post), class: ' comment-like btn btn-success' %>
+    <div class="d-flex mx-3 align-items-center">
+                <%= link_to 'Comment', new_user_post_comment_path(@post.author, @post), class: ' comment-like btn btn-outline-success' %>
                 <%= render 'likes/like' %>
-                <%= link_to 'Edit Post', edit_user_post_path(@user, @post.id), class: 'btn btn-success' %>
+                <%= link_to 'Edit Post', edit_user_post_path(@user, @post.id), class: 'btn btn-outline-info' %>
+                <%= button_to 'Delete Post', method: :delete, class: 'btn btn-outline-danger' %>
 
     </div>
     <%= link_to 'Home Page', '/' %>

@@ -1,5 +1,5 @@
 <div class="general-btn">
     <%= form_with model: Like, url: user_post_likes_path(@post.author, @post) do |form| %>
-        <%= form.submit "Like Post", class: 'comment-like btn btn-danger' %>
+        <%= form.submit "Like Post", class: 'comment-like btn btn-outline-warning' %>
     <% end %>
 </div>

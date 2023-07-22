@@ -43,7 +43,9 @@ class PostsController < ApplicationController
       render :edit, status: unprocessable_entity
     end
   end
-
+  def destroy
+    
+  end
   private
 
   def set_post
