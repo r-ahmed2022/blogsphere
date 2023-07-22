@@ -21,7 +21,7 @@
     <%= link_to 'Back to posts', user_posts_path(@user) %>
     <div class="d-flex flex-column align-self-start mt-4">
        <% @post.comments.each do |comment|%>
-          <span><%= comment.author.name %>:- &nbsp;<%= comment.text %></span>
+          <span><b><%= comment.author.name %>:- </b> &nbsp;<%= comment.text %></span>
        <% end %>
     </div>
 
