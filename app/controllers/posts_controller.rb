@@ -46,7 +46,13 @@ class PostsController < ApplicationController
     end
   end
   def destroy
-    
+     set_post
+     if @post.destroy
+      flash[:notice] = 'Post was deleted successfully.'
+      redirect_to user_posts_path
+     else
+      render "Error", status: unprocessable_entity
+     end
   end
   private
 
