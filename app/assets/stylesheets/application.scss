@@ -98,6 +98,9 @@ td {
   height: 100%;
   margin: 1rem;
 }
+.author {
+  display: inline-block;
+}
 
 @media only screen and (max-width: 500px) {
   .user-photo {
