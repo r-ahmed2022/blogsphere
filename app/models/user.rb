@@ -14,4 +14,9 @@ class User < ApplicationRecord
   def set_default_value
     self.postscounter ||= 0
   end
+
+  def self.search_by_name(query)
+    where("name ILIKE ?", "%#{query}%")
+  end
+  
 end

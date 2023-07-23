@@ -1,7 +1,7 @@
 
-<div class="container mt-3">
+<div class="container mt-3" id="user-list">
 <% @users.each do |user| %>
-<div class="card text-center my-3">
+<div class="card text-center my-3 w-100" id="card">
   <div class="card-header">
   <%= user.id %>
   </div>
@@ -19,4 +19,4 @@
   </div>
 </div>
 <% end %>
-</div>
+ </div>
