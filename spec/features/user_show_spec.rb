@@ -36,17 +36,17 @@ describe 'User show page', type: :feature do
   end
 
   it 'redirects to post show page of a clicked post' do
-    click_link("#{@post1.title}")
+    click_link(@post1.title.to_s)
     expect(page).to have_current_path(user_post_path(@user, @post1))
   end
 
   it 'redirects to post show page of a clicked post' do
-    click_link("#{@post2.title}")
+    click_link(@post2.title.to_s)
     expect(page).to have_current_path(user_post_path(@user, @post2))
   end
 
   it 'redirects to post show page of a clicked post' do
-    click_link("#{@post3.title}")
+    click_link(@post3.title.to_s)
     expect(page).to have_current_path(user_post_path(@user, @post3))
   end
 

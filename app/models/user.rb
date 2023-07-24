@@ -16,7 +16,6 @@ class User < ApplicationRecord
   end
 
   def self.search_by_name(query)
-    where("name ILIKE ?", "%#{query}%")
+    where('name ILIKE ?', "%#{query}%")
   end
-  
 end
