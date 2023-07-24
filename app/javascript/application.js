@@ -5,7 +5,6 @@ import "controllers"
 
 //= require bootstrap
 // app/assets/javascripts/application.js
-
 document.addEventListener('DOMContentLoaded', function() {
     const userSearchInput = document.querySelector('#search');
     const userList = document.querySelector('#user-list');
@@ -26,4 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+
+  
+
+
   

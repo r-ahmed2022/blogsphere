@@ -8,9 +8,12 @@
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     
                   </ul>
-                  <form class="d-flex" role="search" action="/" method="get">
-                    <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search users" aria-label="Search">
-                  </form>
+                <% if controller_name == 'users' && action_name == 'index' %>
+
+                    <form class="d-flex" role="search" action="/users" method="get">
+                        <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search users" aria-label="Search">
+                    </form>
+                <% end %>
             </div>
           </div>
 </nav>
