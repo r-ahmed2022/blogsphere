@@ -3,9 +3,8 @@ class PostsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts
+    @posts = @user.posts.includes(:comments)
     @likes = @posts.includes(:likes)
-    @comments = @posts.includes(:comments)
   end
 
   def show
@@ -60,6 +59,7 @@ class PostsController < ApplicationController
   def set_post
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
+    @comments = @post.comments
   end
 
   def post_params
