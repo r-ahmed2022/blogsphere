@@ -5,7 +5,7 @@
   <div class="card-body d-flex justify-content-start align-items-start">
             <div class="user-photo">
               <!--  <%= @user.photo %> --> 
-
+                 <img src=<%="#{@user.photo}"%> />
             </div>
             <div class="ms-4 ps-4">
                 <h1> <%= @user.name %></h1>
@@ -25,7 +25,7 @@
   <div class="card text-center my-3 ">
   <div class="card-header d-flex justify-content-between">
      <div><b>Title:&nbsp;&nbsp;</b> <%= post.title %>&nbsp;</div> 
-     <%= link_to 'See more..', user_post_path(@user,post) , class: 'link_to_post' %>
+     <%= link_to "#{post.title}", user_post_path(@user,post) , class: 'link_to_post' %>
 
   </div>
   <div class="card-body d-flex flex-column justify-content-around align-items-center">

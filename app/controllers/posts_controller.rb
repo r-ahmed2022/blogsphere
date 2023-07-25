@@ -3,7 +3,8 @@ class PostsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts
+    @posts = @user.posts.includes(:comments)
+    @likes = @posts.includes(:likes)
   end
 
   def show
@@ -31,16 +32,25 @@ class PostsController < ApplicationController
   def edit
     set_post
     @form_url = user_post_path(@user, @post)
-
   end
 
   def update
     set_post
-     if @post.update(post_params)
+    if @post.update(post_params)
       flash[:notice] = 'Post was successfully updated.'
       redirect_to user_posts_path(current_user, @post)
     else
       render :edit, status: unprocessable_entity
+    end
+  end
+
+  def destroy
+    set_post
+    if @post.destroy
+      flash[:notice] = 'Post was deleted successfully.'
+      redirect_to user_posts_path
+    else
+      render 'Error', status: unprocessable_entity
     end
   end
 
@@ -49,6 +59,7 @@ class PostsController < ApplicationController
   def set_post
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
+    @comments = @post.comments
   end
 
   def post_params

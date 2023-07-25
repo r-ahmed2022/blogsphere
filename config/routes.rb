@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     end
   end
 root 'users#index'
-
+get 'search', to: 'users#index', as: :your_search
 end

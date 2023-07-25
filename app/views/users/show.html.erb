@@ -5,6 +5,7 @@
   <div class="card-body d-flex justify-content-around align-items-center">
             <div class="user-photo">
               <!--  <%= @user.photo %> --> 
+              <img src=<%="#{@user.photo}"%> />
 
             </div>
             <div class="user_name-div">
@@ -40,7 +41,7 @@
 
   <div class="card text-center my-3">
   <div class="card-header align-self-start">
-     <b>Title:&nbsp;&nbsp;</b> <%= post.title %>&nbsp; 
+     <b>Post#:&nbsp;&nbsp;</b> <%= post.id %>&nbsp; 
   </div>
   <div class="card-body d-flex justify-content-around align-items-center">
            
@@ -48,7 +49,7 @@
               
              <%= post.text %>
            </div>
-                    <%= link_to 'See more..', user_post_path(@user, post.id) %>
+                    <%= link_to "#{post.title}", user_post_path(@user, post.id) %>
   </div>
   <div class="card-footer text-muted d-flex justify-content-end">
     <b>Comments:- </b><span class="text-success"> &nbsp; <u>  <%= post.commentscounter %></u></span>&nbsp;&nbsp;

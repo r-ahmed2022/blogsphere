@@ -15,6 +15,10 @@
  */
 @import 'bootstrap';
 
+body {
+  background-color: #eee;
+}
+
 .navbar-custom {
   border-radius: 10px;
 }
@@ -97,6 +101,10 @@ td {
   width: 7rem;
   height: 100%;
   margin: 1rem;
+}
+
+.author {
+  display: inline-block;
 }
 
 @media only screen and (max-width: 500px) {
