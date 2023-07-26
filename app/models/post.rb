@@ -6,7 +6,6 @@ class Post < ApplicationRecord
   after_save :update_posts_counter
   before_destroy :decrement_posts_counter
 
-
   validates :title, presence: true, length: { maximum: 250, too_long: '250 characters in post is the maximum allowed.' }
   validates :commentscounter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :likescounter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
