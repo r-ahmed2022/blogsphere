@@ -9,10 +9,9 @@ class PostsController < ApplicationController
 
   def show
     set_post
-     rescue ActiveRecord::RecordNotFoundError
+  rescue ActiveRecord::RecordNotFoundError
     redirect_to root_path
   end
-
 
   def new
     @user = User.find(params[:user_id])
@@ -31,7 +30,7 @@ class PostsController < ApplicationController
 
   def edit
     set_post
-    @form_url = user_post_path(@user, @post)
+    @form_url = user_post_path(current_user, @post)
   end
 
   def update
@@ -44,25 +43,36 @@ class PostsController < ApplicationController
     end
   end
 
+
   def destroy
     set_post
-    if @post.destroy
+       if @post
+        @post&.destroy
       flash[:notice] = 'Post was deleted successfully.'
-      redirect_to user_posts_path
+      redirect_to user_posts_path(@user)
     else
-      render 'Error', status: unprocessable_entity
+      flash.now[:alert] = 'Error deleting post'
+      render :show
     end
   end
+
 
   private
 
   def set_post
-    @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:id])
-    @comments = @post.comments
+    @user = current_user
+
+    if current_user&.id == params[:id].to_i
+      @post = @user.posts.find_by(id: params[:id])
+    else
+      @user = User.find(params[:user_id])
+      @post = @user.posts.find(params[:id])
+    end
   end
 
+
   def post_params
-    params.require(:post).permit(:title, :text)
-  end
+    params.require(:post).permit(:title, :text, commentscounter: 0, likescounter: 0)
+  end
+
 end
