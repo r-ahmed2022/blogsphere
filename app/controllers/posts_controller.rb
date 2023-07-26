@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_post, only: %i[show edit update destroy]
+
 
   def index
     @user = current_user
@@ -14,8 +16,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
-    @post = @user.posts.build
+    @post = current_user.posts.new
   end
 
   def create
@@ -43,11 +44,10 @@ class PostsController < ApplicationController
     end
   end
 
-
   def destroy
     set_post
-       if @post
-        @post&.destroy
+    if @post
+      @post&.destroy
       flash[:notice] = 'Post was deleted successfully.'
       redirect_to user_posts_path(@user)
     else
@@ -55,7 +55,6 @@ class PostsController < ApplicationController
       render :show
     end
   end
-
 
   private
 
@@ -70,9 +69,7 @@ class PostsController < ApplicationController
     end
   end
 
-
   def post_params
-    params.require(:post).permit(:title, :text, commentscounter: 0, likescounter: 0)
-  end
-
+    params.require(:post).permit(:title, :text, commentscounter: 0, likescounter: 0)
+  end
 end
