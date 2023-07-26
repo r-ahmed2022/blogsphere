@@ -2,17 +2,17 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
     @posts = @user.posts.includes(:comments)
     @likes = @posts.includes(:likes)
   end
 
   def show
-    @post = Post.find(params[:id])
-    @user = @post.author_id
-  rescue ActiveRecord::RecordNotFoundError
+    set_post
+     rescue ActiveRecord::RecordNotFoundError
     redirect_to root_path
   end
+
 
   def new
     @user = User.find(params[:user_id])
