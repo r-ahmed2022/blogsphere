@@ -65,11 +65,12 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = if current_user&.id == params[:id].to_i
-              current_user
-            else
-              User.find(params[:id])
-            end
+    if params[:id] == 'sign_out'
+    elsif current_user&.id == params[:id].to_i
+      @user = current_user
+    else
+      @user = User.find(params[:id])
+    end
   end
 
   def set_params

@@ -13,7 +13,7 @@
     <div class="d-flex align-items-center justify-content-evenly w-50">
                 <%= link_to 'Comment', new_user_post_comment_path(@post.author, @post), class: ' comment-like btn btn-outline-success' %>
                 <%= render 'likes/like' %>
-                 <%if current_user&.id == @user.id %>
+                 <%if current_user&.id == @post.author.id %>
                    <%= link_to 'Edit Post', edit_user_post_path(current_user, @post.id), class: 'btn btn-outline-info' %>
                    <%= button_to 'Delete', user_post_path(current_user, @post.id), method: :delete, class: 'btn btn-outline-danger' %>
                  <% end %>
