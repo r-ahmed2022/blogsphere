@@ -13,12 +13,13 @@
     <div class="d-flex align-items-center justify-content-evenly w-50">
                 <%= link_to 'Comment', new_user_post_comment_path(@post.author, @post), class: ' comment-like btn btn-outline-success' %>
                 <%= render 'likes/like' %>
-                <%= link_to 'Edit Post', edit_user_post_path(@user, @post.id), class: 'btn btn-outline-info' %>
-                <%= button_to 'Delete Post', user_post_path(@user, @post), method: :delete, class: 'btn btn-outline-danger' %>
-
+                 <%if current_user&.id == @post.author.id %>
+                   <%= link_to 'Edit Post', edit_user_post_path(current_user, @post.id), class: 'btn btn-outline-info' %>
+                   <%= button_to 'Delete', user_post_path(current_user, @post.id), method: :delete, class: 'btn btn-outline-danger' %>
+                 <% end %>
     </div>
     <%= link_to 'Home Page', '/' %>
-    <%= link_to 'Back to posts', user_posts_path(@user) %>
+    <%= link_to 'Back to posts', user_posts_path(current_user) %>
     <div class="d-flex flex-column align-self-start mt-4">
        <% @post.comments.each do |comment|%>
           <span><b><%= comment.author.name %>:- </b> &nbsp;<%= comment.text %></span>

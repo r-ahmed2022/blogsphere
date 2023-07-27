@@ -1,5 +1,5 @@
 
-<%= form_with(model: [@user, @post], url: @form_url,  local: true) do |form| %>
+<%= form_with(model: [current_user, @post], url: @form_url,  local: true) do |form| %>
    
       <% if form.object.errors.any? %>
        <div>
