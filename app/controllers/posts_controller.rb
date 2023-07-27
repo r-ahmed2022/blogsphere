@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def show
     set_post
-    # authorize! :show, @post
+    authorize! :show, @post
   rescue ActiveRecord::RecordNotFoundError
     redirect_to root_path
   end
