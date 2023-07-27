@@ -52,8 +52,8 @@
                     <%= link_to "#{post.title}", user_post_path(@user, post.id) %>
   </div>
   <div class="card-footer text-muted d-flex justify-content-end">
-    <b>Comments:- </b><span class="text-success"> &nbsp; <u>  <%= post.commentscounter %></u></span>&nbsp;&nbsp;
-    <b>Likes:- </b> &nbsp;<span class=" no-likes text-danger"><u> <%= post.likescounter %></u></span>
+    <b>Comments:- </b><span class="text-success"> &nbsp; <u>  <%= post.commentscounter || 0 %></u></span>&nbsp;&nbsp;
+    <b>Likes:- </b> &nbsp;<span class="no-likes text-danger"><u> <%= post.likescounter || 0 %></u></span>
   </div>
 </div>
 <% end %>
@@ -62,7 +62,7 @@
 
 
      <div class="btn-div">
-        <%= link_to 'See all posts', user_posts_path(@user) , class: ' btn btn-success' %>
+        <%= link_to 'See all posts', user_posts_path(@user) , class: 'btn btn-success' %>
      </div>
 </div>
      
