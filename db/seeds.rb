@@ -8,10 +8,10 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 user = User.create(
-    name: 'Riyaz',
-    photo: 'riyaz.jpg',
+    name: 'Ejaz',
+    photo: 'ejaz.jpg',
     bio: 'Teacher from India',
-    email: 'riyaz@microverse.org',
+    email: 'ejazz@microverse.org',
     password: 'microverse123'
   )
   post = Post.create(
