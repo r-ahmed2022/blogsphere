@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-   load_and_authorize_resource
-   before_action :set_post, only: %i[show edit update destroy]
+  load_and_authorize_resource
+  before_action :set_post, only: %i[show edit update destroy]
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments)
@@ -9,8 +9,8 @@ class PostsController < ApplicationController
 
   def show
     set_post
-    #authorize! :show, @post
-    rescue ActiveRecord::RecordNotFoundError
+    # authorize! :show, @post
+  rescue ActiveRecord::RecordNotFoundError
     redirect_to root_path
   end
 

@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :postscounter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   before_validation :set_default_value
 
-  ROLES = [:admin, :default]
+  ROLES = %i[admin default].freeze
 
   def is?(role)
     self.role == role.to_s

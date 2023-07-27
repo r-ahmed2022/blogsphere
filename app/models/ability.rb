@@ -10,9 +10,9 @@ class Ability
       can :manage, Post, author_id: user.id
     end
 
-    #can :show, Post do |post|
+    # can :show, Post do |post|
     #  true
-    #end
+    # end
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
