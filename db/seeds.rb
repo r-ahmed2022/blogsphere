@@ -10,7 +10,9 @@
 user = User.create(
     name: 'Riyaz',
     photo: 'riyaz.jpg',
-    bio: 'Teacher from India'
+    bio: 'Teacher from India',
+    email: 'riyaz@microverse.org',
+    password: 'microverse123'
   )
   post = Post.create(
     title: 'Demo Post',
