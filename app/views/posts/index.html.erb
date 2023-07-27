@@ -9,9 +9,11 @@
             </div>
             <div class="ms-4 ps-4">
                 <h1> <%= @user.name %></h1>
-                <%= link_to 'New Post', new_user_post_path(@user), class: 'btn btn-success' %>
+              <%if current_user&.id == @user.id %>
 
+                 <%= link_to 'New Post', new_user_post_path(@user), class: 'btn btn-success' %>
 
+               <% end %>
            </div>
   </div>
   <div class="card-footer text-muted d-flex justify-content-end">
