@@ -1,8 +1,8 @@
 class Api::V1::CommentsController < ApplicationController
-  before_action :find_post, only: [:index, :create]
+  before_action :find_post, only: %i[index create]
   protect_from_forgery with: :null_session
-  #before_action :authenticate_user!
-  #skip_before_action :authenticate_user!, if: -> { request.format.json? }
+  # before_action :authenticate_user!
+  # skip_before_action :authenticate_user!, if: -> { request.format.json? }
 
   def index
     comments = @post.comments
