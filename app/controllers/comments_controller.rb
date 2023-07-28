@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+  protect_from_forgery with: :null_session
+  before_action :authenticate_user!
+
+  rescue_from ActionController::InvalidAuthenticityToken, with: :handle_unauthorized_access
   def index
     @post = Post.find(params[:post_id])
     @comments = @post.comments
@@ -36,5 +40,9 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:text)
+  end
+
+  def handle_unauthorized_access
+    render json: { errors: ['You need to sign in or sign up before continuing.'] }, status: :unauthorized
   end
 end

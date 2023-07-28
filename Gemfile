@@ -18,6 +18,7 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'cancancan', '~> 1.9'
 gem 'devise'
 gem 'devise_token_auth'
+gem 'omniauth', '>= 1.0.0'
 gem 'puma', '~> 5.0'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
