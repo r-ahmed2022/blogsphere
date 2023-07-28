@@ -20,6 +20,18 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments
+    @comment = @comments.find(params[:id])
+    if @comment.destroy
+      flash[:notice] = 'Comment was deleted successfully.'
+      redirect_to user_post_path
+    else
+      render 'Error', status: unprocessable_entity
+    end
+  end
+
   private
 
   def comment_params

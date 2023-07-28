@@ -11,6 +11,12 @@ class User < ApplicationRecord
   validates :postscounter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   before_validation :set_default_value
 
+  ROLES = %i[admin default].freeze
+
+  def is?(role)
+    self.role == role.to_s
+  end
+
   def recent_posts
     posts.order(created_at: :desc).limit(3)
   end
