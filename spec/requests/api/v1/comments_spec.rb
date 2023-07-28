@@ -14,4 +14,11 @@ RSpec.describe 'Api::V1::Comments', type: :request do
       expect(response).to have_http_status(:success)
     end
   end
+  describe "GET /create" do
+    it "returns http success" do
+      get "/api/v1/comments/create"
+      expect(response).to have_http_status(:success)
+    end
+  end
+
 end

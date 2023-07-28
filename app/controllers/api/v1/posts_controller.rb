@@ -8,10 +8,10 @@ class Api::V1::PostsController < ApplicationController
     posts = user.posts
     render json: posts
   end
-
   private
 
   def handle_unauthorized_access
     render json: { errors: ['You need to sign in or sign up before continuing.'] }, status: :unauthorized
   end
 end
+
