@@ -17,7 +17,6 @@ class User < ApplicationRecord
   before_validation :set_default_value
   include DeviseTokenAuth::Concerns::User
 
-
   ROLES = %i[admin default].freeze
 
   def is?(role)
