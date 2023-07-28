@@ -5,12 +5,14 @@ class Ability
     # Define abilities for the passed in user here. For example:
     user || User.new
     if user.is?(:admin)
-      can :manage, :Post
+      can :manage, :all
     else
       can :manage, Post, author_id: user.id
+      can :destroy, Comment, post: { author_id: user.id } # Only the post author can delete comments
+
     end
 
-    can :show, Post do |_post|
+    can :show, Post do |post|
       true
     end
     # The first argument to `can` is the action you are giving the user
