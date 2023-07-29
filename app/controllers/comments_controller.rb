@@ -1,8 +1,6 @@
 class CommentsController < ApplicationController
-  protect_from_forgery with: :null_session
   before_action :authenticate_user!
 
-  rescue_from ActionController::InvalidAuthenticityToken, with: :handle_unauthorized_access
   def index
     @post = Post.find(params[:post_id])
     @comments = @post.comments

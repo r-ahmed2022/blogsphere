@@ -1,5 +1,5 @@
-class Api::V1::PostsController < ApplicationController
-  protect_from_forgery with: :null_session
+class Api::V1::PostsController < Api::V1::BaseController
+  #protect_from_forgery with: :null_session
   # before_action :authenticate_user!
   # skip_before_action :authenticate_user!, if: -> { request.format.json? }
 
@@ -11,7 +11,4 @@ class Api::V1::PostsController < ApplicationController
 
   private
 
-  def handle_unauthorized_access
-    render json: { errors: ['You need to sign in or sign up before continuing.'] }, status: :unauthorized
-  end
 end

@@ -1,10 +1,11 @@
-class Api::V1::CommentsController < ApplicationController
+class Api::V1::CommentsController < Api::V1::BaseController
   before_action :find_post, only: %i[index create]
-  protect_from_forgery with: :null_session
+  #protect_from_forgery with: :null_session
   # before_action :authenticate_user!
   # skip_before_action :authenticate_user!, if: -> { request.format.json? }
 
   def index
+
     comments = @post.comments
     render json: comments
   end
@@ -26,6 +27,6 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:text)
   end
 end
